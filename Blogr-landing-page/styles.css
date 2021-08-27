@@ -5,6 +5,10 @@ font-family: 'Ubuntu', sans-serif;*/
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "Overpass", sans-serif;
+}
+html {
+	scroll-behavior: smooth;
 }
 body {
 	width: 100%;
@@ -12,10 +16,19 @@ body {
 }
 header {
 	width: 100%;
-	height: 60vh;
-	background: url(images/bg-pattern-intro.svg) no-repeat 30% center,
+	height: 80%;
+	background: url(images/bg-pattern-intro.svg) no-repeat 10% center,
 		linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
 	border-radius: 0 0 0 5em;
+}
+main {
+	display: flex;
+	flex-direction: column;
+}
+#logo {
+	width: 7em;
+	height: 3em;
+	padding-right: 5em;
 }
 nav {
 	padding: 3em;
@@ -23,23 +36,78 @@ nav {
 	flex-direction: row;
 	align-items: center;
 }
-#headerButtons {
-	width: 100%;
-	text-align: right;
-}
+
 article {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
-#logo {
-	width: 5em;
-	height: 2em;
-	padding-right: 5em;
-}
+
 select {
-	color: hsl(0, 100%, 100%);
+	width: 8em;
 	height: 10%;
-	background-color: rgba(0, 0, 0, 0);
 	border: 0;
+	font-size: 1em;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 500;
+	letter-spacing: 1px;
+	color: rgba(255, 255, 255, 0.8);
+	background-color: transparent;
+}
+#authButtons {
+	width: 100%;
+	text-align: right;
+}
+header button {
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 500;
+}
+#authButtons button {
+	font-size: 1em;
+	margin-left: 2.5em;
+	border: 0;
+}
+#loginButton {
+	background-color: transparent;
+	color: hsl(0, 100%, 100%);
+}
+#signUpButton,
+#startButton {
+	font-size: 1em;
+	color: hsl(356, 100%, 66%);
+	background-color: hsl(0, 100%, 100%);
+	border-radius: 2em;
+	border: 0;
+}
+#learnButtons {
+	margin-top: 3em;
+	margin-bottom: 6em;
+}
+#learnMoreButton {
+	margin-left: 1em;
+	border: 1px solid hsl(0, 100%, 100%);
+	background-color: transparent;
+	font-size: 1em;
+	color: hsl(0, 100%, 100%);
+	padding: 0.6em 1.2em;
+	border-radius: 2em;
+}
+#startButton {
+	padding: 0.6em 1em;
+}
+#signUpButton {
+	padding: 0.5em 2em;
+}
+h1 {
+	color: hsl(0, 100%, 100%);
+	font-size: 2.7em;
+}
+article p {
+	color: hsla(0, 100%, 100%, 0.5);
+}
+h2 {
+	margin-top: 4em;
+	text-align: center;
+	font-size: 1.7em;
 }
