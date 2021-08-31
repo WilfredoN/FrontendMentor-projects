@@ -6,7 +6,16 @@ font-family: 'Ubuntu', sans-serif;*/
 	margin: 0;
 	padding: 0;
 	font-family: "Overpass", sans-serif;
-	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+/* var's */
+:root {
+	--header-bg-gradient-from: hsl(13, 100%, 72%);
+	--header-bg-gradient-to: hsl(353, 100%, 62%);
+	--white: hsl(0, 100%, 100%);
+	--white-transparent: hsla(0, 100%, 100%, 0.5);
+	--header-text: hsl(208, 49%, 24%);
 }
 html {
 	scroll-behavior: smooth;
@@ -19,17 +28,16 @@ header {
 	width: 100%;
 	height: 80%;
 	background: url(images/bg-pattern-intro.svg) no-repeat 10% center,
-		linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+		linear-gradient(
+			to right,
+			var(--header-bg-gradient-from),
+			var(--header-bg-gradient-to)
+		);
 	border-radius: 0 0 0 5em;
 }
 main {
 	display: flex;
 	flex-direction: column;
-}
-#logo {
-	width: 7em;
-	height: 3em;
-	padding-right: 5em;
 }
 nav {
 	padding: 3em;
@@ -44,7 +52,10 @@ header section {
 	align-items: center;
 	justify-content: center;
 }
-
+button {
+	cursor: pointer;
+	user-select: none;
+}
 select {
 	width: 8em;
 	height: 10%;
@@ -55,6 +66,11 @@ select {
 	letter-spacing: 1px;
 	color: rgba(255, 255, 255, 0.8);
 	background-color: transparent;
+}
+#logo {
+	width: 15em;
+	height: 3em;
+	padding-right: 5em;
 }
 #authButtons {
 	width: 100%;
@@ -87,10 +103,10 @@ header button {
 }
 #learnMoreButton {
 	margin-left: 1em;
-	border: 1px solid hsl(0, 100%, 100%);
+	border: 1px solid var(--white);
 	background-color: transparent;
 	font-size: 1em;
-	color: hsl(0, 100%, 100%);
+	color: var(--white);
 	padding: 0.6em 1.2em;
 	border-radius: 2em;
 }
@@ -101,14 +117,14 @@ header button {
 	padding: 0.5em 2em;
 }
 h1 {
-	color: hsl(0, 100%, 100%);
+	color: var(--white);
 	font-size: 2.7em;
 }
 header section p {
-	color: hsla(0, 100%, 100%, 0.5);
+	color: var(--white-transparent);
 }
 h2 {
-	color: hsl(208, 49%, 24%);
+	color: var(--header-text);
 	margin-top: 4em;
 	text-align: center;
 	font-size: 2.5em;
@@ -122,9 +138,9 @@ article p {
 	text-align: left;
 	color: hsl(207, 13%, 34%);
 }
-h3 {
+h3:not(#phonesSection) {
 	font-size: 1.8em;
-	color: hsl(208, 49%, 24%);
+	color: var(--header-text);
 }
 main section {
 	display: flex;
@@ -140,22 +156,46 @@ article {
 	width: 70%;
 	padding: 6em 0 0 10em;
 }
-#phonesSection {
+#empty {
+	height: 40px;
 	width: 100%;
+	position: relative;
+	display: block;
+}
+#empty img {
+	position: absolute;
+	width: 30em;
+	top: -110px;
+	left: 120px;
+	margin-top: 5em;
+	z-index: 1;
 }
 /* - Very dark gray blue: hsl(237, 17%, 21%)
 - Very dark desaturated blue: hsl(237, 23%, 32%) */
-#phonesSection article {
-	z-index: 0;
+#phonesSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
 	background: linear-gradient(
-		to right,
-		hsl(237, 17%, 21%),
-		hsl(237, 23%, 32%)
-	);
+			to right,
+			hsl(237, 17%, 21%),
+			hsl(237, 23%, 32%)
+		),
+		left no-repeat url(images/bg-pattern-circles.svg);
 	border-top-right-radius: 50px;
 	border-bottom-left-radius: 70px;
+	height: 21em;
+	margin-bottom: 15em;
+	z-index: 0;
 }
-#phonesSection img {
-	z-index: 1;
-	width: 40em;
+#phonesSection article {
+	width: 50%;
+	padding-right: 5em;
+}
+#phonesSection h3 {
+	color: var(--white);
+}
+#phonesSection p {
+	color: var(--white-transparent);
 }
