@@ -14,7 +14,7 @@ font-family: 'Ubuntu', sans-serif;*/
 	--header-bg-gradient-from: hsl(13, 100%, 72%);
 	--header-bg-gradient-to: hsl(353, 100%, 62%);
 	--white: hsl(0, 100%, 100%);
-	--white-transparent: hsla(0, 100%, 100%, 0.5);
+	--white-transparent: hsla(0, 100%, 100%, 0.7);
 	--header-text: hsl(208, 49%, 24%);
 }
 html {
@@ -166,7 +166,7 @@ article {
 	position: absolute;
 	width: 30em;
 	top: -110px;
-	left: 120px;
+	left: 130px;
 	margin-top: 5em;
 	z-index: 1;
 }
@@ -177,12 +177,10 @@ article {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-end;
-	background: linear-gradient(
-			to right,
-			hsl(237, 17%, 21%),
-			hsl(237, 23%, 32%)
-		),
-		left no-repeat url(images/bg-pattern-circles.svg);
+	background: right 120% top 85% / 70% no-repeat
+			url(images/bg-pattern-circles.svg),
+		linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+
 	border-top-right-radius: 50px;
 	border-bottom-left-radius: 70px;
 	height: 21em;
