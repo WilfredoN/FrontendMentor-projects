@@ -16,32 +16,41 @@
   <header>
     <nav>
       <img id="logo" src="images/logo.svg" alt="Blogr logo at the heading">
-      <select name="Product">
-        <option selected="selected">Product</option>
 
-        <option>Overview</option>
-        <option>Pricing</option>
-        <option>Marketplace</option>
-        <option>Features</option>
-        <option>Integrations</option>
-      </select>
+      <div class="select">
+        <select name="Product">
+          <option selected="selected">Product</option>
 
-      <select name="Company">
-        <option selected="selected">Company</option>
+          <option>Overview</option>
+          <option>Pricing</option>
+          <option>Marketplace</option>
+          <option>Features</option>
+          <option>Integrations</option>
+        </select>
+        <span class="focus"></span>
+      </div>
+      <div class="select">
+        <select name="Company">
+          <option selected="selected">Company</option>
 
-        <option>About</option>
-        <option>Team</option>
-        <option>Blog</option>
-        <option>Careers</option>
-      </select>
+          <option>About</option>
+          <option>Team</option>
+          <option>Blog</option>
+          <option>Careers</option>
+        </select>
+        <span class="focus"></span>
 
-      <select name="Connect">
-        <option selected="selected">Connect</option>
+      </div>
+      <div class="select">
+        <select name="Connect">
+          <option selected="selected">Connect</option>
+          <option>Contact</option>
+          <option>Newsletter</option>
+          <option>LinkedIn</option>
+        </select>
+        <span class="focus"></span>
 
-        <option>Contact</option>
-        <option>Newsletter</option>
-        <option>LinkedIn</option>
-      </select>
+      </div>
       <div id="authButtons">
         <button id="loginButton">Login</button>
         <button id="signUpButton">Sign Up</button>
