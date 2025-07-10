@@ -4,9 +4,6 @@ const output = document.querySelector("h1");
 const operationsList = document.querySelector("h2");
 const operationSymbol = document.getElementsByClassName("operate");
 var number = "";
-console.log(calcBut);
-console.log(output);
-console.log(operationSymbol);
 
 //function that detect color scheme
 document.addEventListener("DOMContentLoaded", function () {
