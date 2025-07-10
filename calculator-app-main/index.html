@@ -1,64 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- displays site properly based on user's device -->
-		<link rel="stylesheet" href="main.css" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="./images/favicon-32x32.png"
-		/>
-		<title>Frontend Mentor | Calculator app</title>
-	</head>
-	<body>
-		<header>
-			<abbr>calc</abbr>
-			<nav>
-				<p id="theme">THEME</p>
-				<div id="rangeText">
-					<p>1 2 3</p>
-					<label>
-						<input
-							type="range"
-							min="1"
-							max="3"
-							step="1"
-							value="3"
-							id="themeSelector"
-						/>
-					</label>
-				</div>
-			</nav>
-		</header>
-		<section role="main" class="output">
-			<h2>0</h2>
-			<h1>0</h1>
-		</section>
-		<main>
-			<div class="calculator">
-				<button class="num">7</button>
-				<button class="num">8</button>
-				<button class="num">9</button>
-				<button class="delete" onclick="deleteNum();">DEL</button>
-				<button class="num">4</button>
-				<button class="num">5</button>
-				<button class="num">6</button>
-				<button class="operate" onclick="operation('+');">+</button>
-				<button class="num">1</button>
-				<button class="num">2</button>
-				<button class="num">3</button>
-				<button class="operate">-</button>
-				<button class="num">.</button>
-				<button class="num">0</button>
-				<button class="operate" onclick="operation('/');">/</button>
-				<button class="operate" onclick="operation('*');">x</button>
-				<button id="RESET" onclick="reset();">RESET</button>
-				<button id="result" onclick="result();">=</button>
-			</div>
-		</main>
-		<script src="index.js"></script>
-	</body>
+<!doctype html>
+<html lang="en" data-theme="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body>
+    <header>
+      <abbr>calc</abbr>
+      <nav>
+        <p id="theme">THEME</p>
+        <div id="rangeText">
+          <p>1 2 3</p>
+          <label>
+            <input
+              type="range"
+              min="1"
+              max="3"
+              step="1"
+              value="1"
+              id="themeSelector"
+            />
+          </label>
+        </div>
+      </nav>
+    </header>
+    <section role="main" class="output">
+      <h2>0</h2>
+      <h1>0</h1>
+    </section>
+    <main>
+      <div class="calculator">
+        <button class="num">7</button>
+        <button class="num">8</button>
+        <button class="num">9</button>
+        <button class="delete" onclick="deleteNum();">DEL</button>
+        <button class="num">4</button>
+        <button class="num">5</button>
+        <button class="num">6</button>
+        <button class="operate" onclick="operation('+');">+</button>
+        <button class="num">1</button>
+        <button class="num">2</button>
+        <button class="num">3</button>
+        <button class="operate" onclick="operation('-');">-</button>
+        <button class="num">.</button>
+        <button class="num">0</button>
+        <button class="operate" onclick="operation('/');">/</button>
+        <button class="operate" onclick="operation('*');">x</button>
+        <button id="RESET" onclick="reset();">RESET</button>
+        <button id="result" onclick="result();">=</button>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
 </html>

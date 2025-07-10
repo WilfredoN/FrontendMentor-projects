@@ -2,103 +2,151 @@ const themeSelector = document.getElementById("themeSelector");
 const calcBut = document.getElementsByClassName("num");
 const output = document.querySelector("h1");
 const operationsList = document.querySelector("h2");
-const operationSymbol = document.getElementsByClassName("operate");
-var number = "";
+let currentInput = "0";
+let previousInput = null;
+let operator = null;
+let waitingForNewInput = false;
+let expression = "";
 
-//function that detect color scheme
-document.addEventListener("DOMContentLoaded", function () {
-	console.log("DOM fully loaded and parsed");
-	if (
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: dark)").matches
-	) {
-		themeSelector.value = 2;
-	}
-	if (
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: light)").matches
-	) {
-		themeSelector.value = 3;
-	}
-});
+function updateDisplay() {
+	output.innerHTML = currentInput;
+	operationsList.innerHTML = expression;
+}
 
-let isHaveDot = false;
-
-//function that allow to enter number in the output
 function enteringNumber() {
 	for (let i = 0; i < calcBut.length; i++) {
 		calcBut[i].addEventListener("click", function () {
-			if (!number) {
-				output.innerHTML = "";
+			let val = calcBut[i].innerText;
+
+			if (val === ".") {
+				if (currentInput.includes(".")) return;
+				if (waitingForNewInput) {
+					currentInput = "0.";
+					waitingForNewInput = false;
+				} else {
+					currentInput += ".";
+				}
+			} else {
+				if (waitingForNewInput || currentInput === "0") {
+					currentInput = val;
+					waitingForNewInput = false;
+				} else {
+					currentInput += val;
+				}
 			}
-			if (calcBut[i].innerText === '.' && !isHaveDot) {
-				isHaveDot = true;
-			}
-			else if (calcBut[i].innerHTML === "." && isHaveDot) {
-				return;
-			}
-			output.innerHTML += calcBut[i].innerHTML;
-			number += calcBut[i].innerHTML;
-			operationsList.innerHTML = number;
-			console.log(number);
+
+			updateDisplay();
 		});
 	}
 }
 
-//function that delete one number from the output
 function deleteNum() {
-	output.innerHTML = output.textContent.substr(
-		0,
-		output.textContent.length - 1
-	);
-	let numberC = number.slice(0, number.length - 1);
-	number = numberC;
-	operationsList.innerHTML = number;
-	console.log(number);
+	if (currentInput.length > 1) {
+		currentInput = currentInput.slice(0, -1);
+	} else {
+		currentInput = "0";
+	}
+	updateDisplay();
 }
 
-//variable for first number
 function reset() {
-	output.innerHTML = "";
-	number = "";
-	console.clear();
-	operationsList.innerHTML = "";
+	currentInput = "0";
+	previousInput = null;
+	operator = null;
+	waitingForNewInput = false;
+	expression = "";
+	updateDisplay();
 }
 
-//function that allow to enter next number
 function operation(op) {
-	isHaveDot = false;
-	number += op;
-	console.log(number);
-	output.innerHTML = "";
-	operationsList.innerHTML = "";
+	const current = parseFloat(currentInput);
+
+	if (previousInput === null) {
+		previousInput = current;
+		expression = currentInput + " " + op;
+	} else if (operator && !waitingForNewInput) {
+		const result = calculate(previousInput, current, operator);
+		if (result === null) {
+			reset();
+			return;
+		}
+		currentInput = formatResult(result);
+		previousInput = result;
+		expression = currentInput + " " + op;
+	} else {
+		expression = currentInput + " " + op;
+		previousInput = current;
+	}
+
+	operator = op;
+	waitingForNewInput = true;
+	updateDisplay();
 }
 
-//result function
 function result() {
+	if (operator && previousInput !== null && !waitingForNewInput) {
+		const current = parseFloat(currentInput);
+		const result = calculate(previousInput, current, operator);
 
-	try {
-		if (number.includes("/0")) {
-			throw new Error("Zero division error!");
+		if (result === null) {
+			reset();
+			return;
 		}
-		if (number.length > 1) {
-			let result = eval(number);
-			operationsList.innerHTML = number;
-			console.log(`result of ${number} is ${result}`);
-			output.innerHTML = Number.isInteger(result)
-				? result
-				: result.toFixed(2);
-		} else {
-			console.log("0 operations found");
-			alert("0 operations found");
-		}
-	}
-	catch (error) {
-		alert(error.message);
-		reset();
+
+		expression = previousInput + " " + operator + " " + currentInput + " =";
+		currentInput = formatResult(result);
+		previousInput = null;
+		operator = null;
+		waitingForNewInput = true;
+		updateDisplay();
 	}
 }
-enteringNumber();
 
-//TODO:
-//theme select manually 🤔
+function calculate(prev, current, op) {
+	switch (op) {
+		case "+":
+			return prev + current;
+		case "-":
+			return prev - current;
+		case "*":
+			return prev * current;
+		case "/":
+			if (current === 0) return null;
+			return prev / current;
+		default:
+			return null;
+	}
+}
+
+function formatResult(result) {
+	if (!isFinite(result)) return "Error";
+	if (Number.isInteger(result)) return result.toString();
+	return parseFloat(result.toFixed(10)).toString();
+}
+
+function toggleTheme(themeValue) {
+	const root = document.documentElement;
+	if (themeValue === "1") root.setAttribute("data-theme", "default");
+	else if (themeValue === "2") root.setAttribute("data-theme", "dark");
+	else if (themeValue === "3") root.setAttribute("data-theme", "light");
+}
+
+themeSelector.addEventListener("input", function () {
+	toggleTheme(themeSelector.value);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+	if (
+		window.matchMedia &&
+		window.matchMedia("(prefers-color-scheme: dark)").matches
+	)
+		themeSelector.value = 2;
+	if (
+		window.matchMedia &&
+		window.matchMedia("(prefers-color-scheme: light)").matches
+	)
+		themeSelector.value = 3;
+	updateDisplay();
+});
+
+enteringNumber();

@@ -1,252 +1,263 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
-@media (prefers-color-scheme: light) {
-	html {
-		background-color: hsl(0, 0%, 90%);
-	}
-	.output {
-		background-color: hsl(0, 0%, 93%);
-	}
-	header abbr {
-		color: hsl(60, 10%, 19%);
-	}
-	#theme {
-		color: hsl(60, 10%, 19%);
-	}
-	input[type="range"] {
-		background-color: hsl(0, 5%, 81%);
-	}
-	input[type="range"]::-moz-range-thumb {
-		background-color: hsl(25, 98%, 40%);
-	}
-	input[type="range"]::-webkit-slider-thumb {
-		background-color: hsl(25, 98%, 40%);
-	}
-	.calculator {
-		background-color: hsl(0, 5%, 81%);
-	}
-	button {
-		color: hsl(60, 10%, 19%);
-		border: 0;
-		background-color: hsl(0, 0%, 100%);
-		border-bottom: 5px solid hsl(35, 11%, 61%);
-	}
-	#RESET,
-	#delete {
-		color: hsl(0, 0%, 100%);
-		background-color: hsl(185, 42%, 37%);
-		border-bottom: 5px solid hsl(185, 58%, 25%);
-	}
-	#result {
-		color: hsl(0, 0%, 100%);
-		background-color: hsl(25, 98%, 40%);
-		border-bottom: 5px solid hsl(25, 99%, 27%);
-	}
+:root[data-theme='default'] {
+  --main-bg: hsl(0, 0%, 90%);
+  --display-bg: hsl(0, 0%, 93%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --text-color: hsl(60, 10%, 19%);
+  --number-key-bg: hsl(0, 0%, 100%);
+  --number-key-shadow: hsl(35, 11%, 61%);
+  --number-key-text: hsl(60, 10%, 19%);
+  --action-key-bg: hsl(185, 42%, 37%);
+  --action-key-shadow: hsl(185, 58%, 25%);
+  --action-key-text: hsl(0, 0%, 100%);
+  --equals-key-bg: hsl(25, 98%, 40%);
+  --equals-key-shadow: hsl(25, 99%, 27%);
+  --equals-key-text: hsl(0, 0%, 100%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --toggle-thumb: hsl(25, 98%, 40%);
 }
-@media (prefers-color-scheme: dark) {
-	html {
-		background-color: hsl(268, 75%, 9%);
-		color: hsl(52, 100%, 62%);
-	}
-	input[type="range"] {
-		background-color: hsl(268, 71%, 12%);
-	}
-	input[type="range"]::-moz-range-thumb {
-		background-color: hsl(176, 100%, 44%);
-	}
-	input[type="range"]::-webkit-slider-thumb {
-		background-color: hsl(176, 100%, 44%);
-	}
-	.output,
-	main {
-		background-color: hsl(268, 71%, 12%);
-	}
-	button {
-		color: hsl(52, 100%, 62%);
-		border: 0;
-		background-color: hsl(268, 47%, 21%);
-		border-bottom: 5px solid hsl(290, 70%, 36%);
-	}
-	#RESET,
-	#delete {
-		color: hsl(0, 0%, 100%);
-		background-color: hsl(281, 89%, 26%);
-		border-bottom: 5px solid hsl(285, 91%, 52%);
-	}
-	#result {
-		color: hsl(198, 20%, 13%);
-		background-color: hsl(176, 100%, 44%);
-		border-bottom: 5px solid hsl(177, 92%, 70%);
-	}
+
+:root[data-theme='dark'] {
+  --main-bg: hsl(268, 75%, 9%);
+  --display-bg: hsl(268, 71%, 12%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --text-color: hsl(52, 100%, 62%);
+  --number-key-bg: hsl(268, 47%, 21%);
+  --number-key-shadow: hsl(290, 70%, 36%);
+  --number-key-text: hsl(52, 100%, 62%);
+  --action-key-bg: hsl(281, 89%, 26%);
+  --action-key-shadow: hsl(285, 91%, 52%);
+  --action-key-text: hsl(0, 0%, 100%);
+  --equals-key-bg: hsl(176, 100%, 44%);
+  --equals-key-shadow: hsl(177, 92%, 70%);
+  --equals-key-text: hsl(198, 20%, 13%);
+  --toggle-bg: hsl(268, 71%, 12%);
+  --toggle-thumb: hsl(176, 100%, 44%);
 }
+
+:root[data-theme='light'] {
+  --main-bg: hsl(0, 0%, 93%);
+  --display-bg: hsl(0, 0%, 90%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --text-color: hsl(60, 10%, 19%);
+  --number-key-bg: hsl(0, 0%, 100%);
+  --number-key-shadow: hsl(35, 11%, 61%);
+  --number-key-text: hsl(60, 10%, 19%);
+  --action-key-bg: hsl(185, 42%, 37%);
+  --action-key-shadow: hsl(185, 58%, 25%);
+  --action-key-text: hsl(0, 0%, 100%);
+  --equals-key-bg: hsl(25, 98%, 40%);
+  --equals-key-shadow: hsl(25, 99%, 27%);
+  --equals-key-text: hsl(0, 0%, 100%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --toggle-thumb: hsl(25, 98%, 40%);
+}
+
+html {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+
+.output {
+  background-color: var(--display-bg);
+}
+
+.calculator {
+  background-color: var(--keypad-bg);
+}
+
+button {
+  color: var(--number-key-text);
+  background-color: var(--number-key-bg);
+  border-bottom: 5px solid var(--number-key-shadow);
+}
+
+.delete,
+#RESET {
+  color: var(--action-key-text);
+  background-color: var(--action-key-bg);
+  border-bottom: 5px solid var(--action-key-shadow);
+}
+
+#result {
+  color: var(--equals-key-text);
+  background-color: var(--equals-key-bg);
+  border-bottom: 5px solid var(--equals-key-shadow);
+}
+
+input[type='range'] {
+  background-color: var(--toggle-bg);
+}
+
+input[type='range']::-moz-range-thumb {
+  background-color: var(--toggle-thumb);
+}
+
+input[type='range']::-webkit-slider-thumb {
+  background-color: var(--toggle-thumb);
+}
+
 @media (max-width: 1200px) {
-	.delete {
-		font-size: 1.5em;
-		height: 100%;
-	}
+  .delete {
+    font-size: 1.5em;
+    height: 100%;
+  }
 }
 @media (max-width: 1000px) {
-	body {
-		width: 80%;
-	}
-	.calculator {
-		grid-template-columns: repeat(4, minmax(2em, 4em));
-	}
+  body {
+    width: 80%;
+  }
+  .calculator {
+    grid-template-columns: repeat(4, minmax(2em, 4em));
+  }
 }
 @media (max-width: 380px) {
-	.delete {
-		font-size: 1em;
-		height: 100%;
-	}
+  .delete {
+    font-size: 1em;
+    height: 100%;
+  }
 }
 * {
-	font-family: "Spartan", sans-serif;
+  font-family: 'Spartan', sans-serif;
 }
 html {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 0;
-	padding: 0;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 button {
-	font-size: 32px;
+  font-size: 32px;
 }
 body {
-	min-width: 30%;
+  min-width: 30%;
+  max-width: 40%;
 }
 header {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 main {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	margin-top: 1em;
-	border-radius: 0.5em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  border-radius: 0.5em;
 }
 .output {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 8em;
-	padding: 1em;
-	border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 8em;
+  padding: 1em;
+  border-radius: 0.5em;
 }
 .output h1 {
-	word-wrap: break-word;
-	font-size: 2.5em;
+  word-wrap: break-word;
+  font-size: 2.5em;
 }
 .output h1,
 .output h2 {
-	width: 100%;
-	text-align: right;
-	margin: 0;
+  width: 100%;
+  text-align: right;
+  margin: 0;
 }
 .output h2 {
-	opacity: 0.5;
+  opacity: 0.5;
+  max-width: 100%;
 }
 header abbr {
-	text-align: left;
-	width: 20%;
-	font-size: 2em;
+  text-align: left;
+  width: 20%;
+  font-size: 2em;
 }
 header nav {
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	justify-content: flex-end;
-	text-align: right;
-	width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 80%;
 }
 #theme {
-	margin-right: 2em;
-	font-size: 0.8em;
+  margin-right: 2em;
+  font-size: 0.8em;
 }
 #rangeText {
-	max-width: 4.7em;
-	padding-bottom: 1.2em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	letter-spacing: 0.2em;
+  max-width: 4.7em;
+  padding-bottom: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2em;
 }
 #rangeText p {
-	font-size: 0.8rem;
-	width: 70%;
-	height: 1em;
-	margin-bottom: 5px;
+  font-size: 0.8rem;
+  width: 70%;
+  height: 1em;
+  margin-bottom: 5px;
 }
 p {
-	width: 100%;
-	margin: 0;
+  width: 100%;
+  margin: 0;
 }
 .calculator {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(4, minmax(2em, 25%));
-	gap: 1em;
-	padding: 2em;
-	border-radius: 0.5em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(2em, 25%));
+  gap: 1em;
+  padding: 2em;
+  border-radius: 0.5em;
 }
 button {
-	cursor: pointer;
-	padding: 0;
-	height: 1.8em;
-	border-radius: 8px;
-	text-align: center;
+  cursor: pointer;
+  padding: 0;
+  height: 1.8em;
+  border-radius: 8px;
+  text-align: center;
+  border: 0;
+  color: var(--number-key-text);
+  background-color: var(--number-key-bg);
+  border-bottom: 5px solid var(--number-key-shadow);
 }
 button:active {
-	transform: translateY(2px);
+  transform: translateY(2px);
 }
 #RESET {
-	grid-column-start: 1;
-	grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 #result {
-	grid-column-start: 3;
-	grid-column-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 5;
 }
-#delete {
-	font-size: 1.1em;
-	height: 3em;
+.delete {
+  font-size: 1.1em;
+  height: 3em;
 }
 #RESET,
 #result {
-	font-size: 1.2em;
-	height: 3em;
+  font-size: 1.2em;
+  height: 3em;
 }
 header input {
-	height: 1em;
+  height: 1em;
 }
-input[type="range"] {
-	width: 70%;
-	height: 1em;
-	margin: 0;
-	padding: 3px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	border-radius: 3em;
-}
-input[type="range"]::-moz-range-thumb {
-	border: 0;
-	position: absolute;
-	right: 5em;
-	width: 12px;
-	height: 12px;
-}
-input[type="range"]::-webkit-slider-thumb {
-	border: 0;
-	position: absolute;
-	right: 5em;
-	width: 12px;
-	height: 12px;
+input[type='range'] {
+  width: 70%;
+  height: 1em;
+  margin: 0;
+  padding: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3em;
 }
