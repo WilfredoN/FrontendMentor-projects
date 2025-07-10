@@ -17,6 +17,11 @@ body {
   padding: 0;
 }
 
+main {
+  margin: auto;
+  max-width: 1440px;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 768px) {
   body {
@@ -29,7 +34,6 @@ body {
     flex-direction: column;
   }
   .squares img {
-    width: 100vw;
     height: 100%;
   }
 }
@@ -99,7 +103,6 @@ nav button:hover {
   position: absolute;
 }
 .headerImage {
-  height: 60em;
   z-index: 1;
   position: relative;
 }
@@ -195,10 +198,13 @@ h2:hover > .audienceLink {
 .design {
   position: relative;
 }
+.design,
+.Photography {
+  text-align: center;
+}
 .design img,
 .Photography img {
-  height: 720px;
-  object-fit: fill;
+  width: 100%;
 }
 #paragraph,
 #header {
@@ -206,8 +212,9 @@ h2:hover > .audienceLink {
 }
 #header {
   color: #20534a;
-  left: 12em;
+  text-align: center;
   bottom: 4em;
+  width: 100%;
 }
 #header:nth-child(2) {
   color: #17546c;
@@ -215,7 +222,6 @@ h2:hover > .audienceLink {
 #paragraph {
   width: 22em;
   color: #3e7c6f;
-  left: 20em;
   bottom: 3em;
   text-align: center;
 }
@@ -270,10 +276,10 @@ h2:hover > .audienceLink {
 }
 #gallery {
   display: flex;
-  width: 100vw;
   border: 0;
   margin-top: 10em;
   flex-direction: row;
+  overflow: hidden;
 }
 #gallery img {
   width: 25vw;
@@ -284,7 +290,6 @@ footer {
   align-items: center;
   background-color: #90d4c5;
   height: 25em;
-  width: 100vw;
 }
 footer nav {
   margin-top: 0.5em;
