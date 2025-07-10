@@ -1,41 +1,21 @@
-let viewsPrice = document.getElementsByClassName("pageCost");
-let views = document.getElementById("pageviews");
-views = views.querySelector("h2");
-let pricePerMonth = document.getElementById("cost");
-pricePerMonth = pricePerMonth.querySelector("span");
-let rangeSlider = document.getElementById("sliderRange");
-let discount = document.getElementById("discount");
-console.log(viewsPrice);
-console.log(views);
-console.log(pricePerMonth);
-console.log(rangeSlider);
-let priceSet = () => {
-	if (rangeSlider.value < 10) {
-		views.innerHTML = "10K pageviews";
-		pricePerMonth.innerHTML = "$8.00";
-	} else if (rangeSlider.value <= 30) {
-		views.innerHTML = "50K pageviews";
-		pricePerMonth.innerHTML = "$12.00";
-	} else if (rangeSlider.value <= 50) {
-		views.innerHTML = "100K pageviews";
-		pricePerMonth.innerHTML = "$16.00";
-	} else if (rangeSlider.value <= 70) {
-		views.innerHTML = "500K pageviews";
-		pricePerMonth.innerHTML = "$24.00";
-	} else if (rangeSlider.value <= 100) {
-		views.innerHTML = "1M pageviews";
-		pricePerMonth.innerHTML = "$36.00";
-	}
-	//	console.log(rangeSlider.value);
-};
-setInterval(priceSet);
-let matchMedia = window.matchMedia("(max-width: 900px)");
-setInterval(() => {
-	if (matchMedia.matches) {
-		discount.innerHTML = "25%";
-		discount.style.width = "3.5em";
-	} else {
-		discount.innerHTML = "25% discount";
-		discount.style.width = "7.5em";
-	}
-}, 0);
+const priceTiers = [
+	{ max: 10, views: "10K pageviews", price: "$8.00" },
+	{ max: 30, views: "50K pageviews", price: "$12.00" },
+	{ max: 50, views: "100K pageviews", price: "$16.00" },
+	{ max: 70, views: "500K pageviews", price: "$24.00" },
+	{ max: 100, views: "1M pageviews", price: "$36.00" }
+];
+
+const views = document.querySelector("#pageviews h2");
+const pricePerMonth = document.querySelector("#cost span");
+const rangeSlider = document.getElementById("sliderRange");
+
+function priceSet() {
+	const value = Number(rangeSlider.value);
+	const tier = priceTiers.find(t => value <= t.max) || priceTiers[priceTiers.length - 1];
+	views.textContent = tier.views;
+	pricePerMonth.textContent = tier.price;
+}
+
+rangeSlider.addEventListener("input", priceSet);
+priceSet();

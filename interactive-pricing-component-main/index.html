@@ -1,75 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- displays site properly based on user's device -->
-		<link rel="stylesheet" href="index.css" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="./images/favicon-32x32.png"
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-		<title>Frontend Mentor | Interactive pricing component</title>
+    <title>Frontend Mentor | Interactive pricing component</title>
 
-		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-		<style>
-			.attribution {
-				font-size: 11px;
-				text-align: center;
-			}
-			.attribution a {
-				color: hsl(228, 45%, 44%);
-			}
-		</style>
-	</head>
-	<body>
-		<div class="header">
-			<div class="circles">
-				<img src="images/pattern-circles.svg" alt="circles" />
-			</div>
-			<h1>Simple, traffic-based pricing</h1>
-			<h2>Sign-up for our 30-day trial. No credit card required.</h2>
-		</div>
-		<div class="card">
-			<div class="pageCost">
-				<div id="pageviews">
-					<h2>100K Pageviews</h2>
-				</div>
-				<div id="cost">
-					<h2><span id="priceSpan">16$</span>/month</h2>
-				</div>
-			</div>
-			<input type="range" id="sliderRange" min="0" max="100" value="50" />
-			<div class="bill">
-				<h2>Monthly Billing</h2>
-				<label class="switch">
-					<input type="checkbox" />
-					<span class="slider round"></span>
-				</label>
-				<h2>Yearly Billing</h2>
-				<span id="discount"></span>
-			</div>
-			<hr />
-			<div class="underSection">
-				<ul>
-					<li>Unlimited websites</li>
-					<li>100% data ownership</li>
-					<li>Email reports</li>
-				</ul>
-				<button id="trial">Start my trial</button>
-			</div>
-		</div>
-		<div class="attribution">
-			Challenge by
-			<a
-				href="https://www.frontendmentor.io?ref=challenge"
-				target="_blank"
-				>Frontend Mentor</a
-			>. Coded by <a href="#">Your Name Here</a>.
-		</div>
-		<script src="index.js"></script>
-	</body>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="circles">
+        <img src="images/pattern-circles.svg" alt="circles" />
+      </div>
+      <h1>Simple, traffic-based pricing</h1>
+      <h2>Sign-up for our 30-day trial. No credit card required.</h2>
+    </div>
+    <div class="card">
+      <div class="pageCost">
+        <div id="pageviews">
+          <h2>100K Pageviews</h2>
+        </div>
+        <div id="cost">
+          <h2><span id="priceSpan">16$</span>/month</h2>
+        </div>
+      </div>
+      <input type="range" id="sliderRange" min="0" max="100" value="50" />
+      <div class="bill">
+        <h2>Monthly Billing</h2>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <h2>Yearly Billing</h2>
+        <span id="discount"></span>
+      </div>
+      <hr />
+      <div class="underSection">
+        <ul>
+          <li>Unlimited websites</li>
+          <li>100% data ownership</li>
+          <li>Email reports</li>
+        </ul>
+        <button id="trial">Start my trial</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>
